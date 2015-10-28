@@ -1,5 +1,5 @@
 'use strict';
 
 module.exports = function(request, reply) {
-    reply({ 'api' : 'hello!' });
+    reply({ 'api' : 'hello world!' });
 };
