@@ -105,16 +105,18 @@ function UserService(UserModel) {
             if(userDoc)
             {
                 // compare the password
-                if(bcrypt.compareSync(password, userDoc.password))
-                {
-                    // after verifying the password, remove it from the record so it is not returned
-                    userDoc.password = undefined;
-                    addFdaDrugInfo(userDoc, callback);
-                }
-                else
-                {
-                    callback();
-                }
+                bcrypt.compare(password, userDoc.password, function(err, res) {
+                    if(res)
+                    {
+                        // after verifying the password, remove it from the record so it is not returned
+                        userDoc.password = undefined;
+                        addFdaDrugInfo(userDoc, callback);
+                    }
+                    else
+                    {
+                        callback();
+                    }
+                });
             }
             else
             {
@@ -125,16 +127,18 @@ function UserService(UserModel) {
 
     pub.addUser = function(params, callback) {
         // encrypt password
-        var salt = bcrypt.genSaltSync(10);
-        var hash = bcrypt.hashSync(params.password, salt);
-        var user = new UserModel({
-            firstName: params.firstName,
-            lastName: params.lastName,
-            email: params.email,
-            password: hash,
-            token: randomstring.generate(8)
+        bcrypt.genSalt(10, function(err, salt) {
+            bcrypt.hash(params.password, salt, function(err, hash) {
+                var user = new UserModel({
+                    firstName: params.firstName,
+                    lastName: params.lastName,
+                    email: params.email,
+                    password: hash,
+                    token: randomstring.generate(8)
+                });
+                user.save(callback);
+            });
         });
-        user.save(callback);
     };
 
     pub.updateUser = function(token, params, callback) {
