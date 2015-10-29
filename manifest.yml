@@ -1,6 +1,6 @@
 ---
 applications:
-- name: AgileBPA-server
+- name: AgileBPA-server-Kyle
   buildpack: https://github.com/cloudfoundry/nodejs-buildpack
   path: ./server
   env:
