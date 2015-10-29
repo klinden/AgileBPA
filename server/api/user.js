@@ -52,7 +52,7 @@ module.exports = {
     },
     updateUser: {
         handler: function(request, reply) {
-            service.updateUser(request.params.token, request.payload, function(err, user) {
+            service.updateUser(request.auth.credentials.token, request.payload, function(err, user) {
                 if(!err && user)
                     reply('http://' + request.info.host + request.path + "/" + user.token).code(200);
                 else if(!err && !user)
@@ -67,7 +67,7 @@ module.exports = {
     },
     deleteUser: {
         handler: function(request, reply) {
-            service.deleteUser(request.params.token, function(err, user) {
+            service.deleteUser(request.auth.credentials.token, function(err, user) {
                 if(!err && user)
                     reply().code(204);
                 else if(!err && !user)
@@ -82,9 +82,9 @@ module.exports = {
     },
     addUserDrug: {
         handler: function(request, reply) {
-            service.addUserDrug(request.params.token, request.payload, function(err, user) {
+            service.addUserDrug(request.auth.credentials.token, request.payload, function(err, user) {
                 if(!err && user)
-                    reply('http://' + request.info.host + request.path).code(201);
+                    reply('http://' + request.info.host + '/api/user/' + user.token).code(201);
                 else if(!err && !user)
                     reply().code(404);
                 else

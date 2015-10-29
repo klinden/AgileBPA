@@ -40,7 +40,8 @@ server.register(require('hapi-auth-bearer-simple'), function(err) {
                        id: userDoc.id,
                        firstName: userDoc.firstName,
                        lastName: userDoc.lastName,
-                       email: userDoc.email
+                       email: userDoc.email,
+                       token: userDoc.token
                    });
                }
                else

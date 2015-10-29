@@ -22,17 +22,17 @@ module.exports = [
     },
     {
         method: 'PATCH',
-        path: "/api/user/{token}",
+        path: "/api/user",
         config: User.updateUser
     },
     {
         method: 'DELETE',
-        path: "/api/user/{token}",
+        path: "/api/user",
         config: User.deleteUser
     },
     {
         method: 'POST',
-        path: "/api/user/{token}/drug",
+        path: "/api/user/drug",
         config: User.addUserDrug
     },
     {
