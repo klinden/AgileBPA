@@ -48,6 +48,9 @@ module.exports = {
                 email: Joi.string().email(),
                 password: Joi.string()
             }
+        },
+        auth: {
+            strategy: 'bearer'
         }
     },
     updateUser: {
@@ -60,6 +63,9 @@ module.exports = {
                 else
                     reply(err.message).code(500);
             });
+        },
+        auth: {
+            strategy: 'bearer'
         }
     },
     deleteUser: {
@@ -72,6 +78,9 @@ module.exports = {
                 else
                     reply(err.message).code(500);
             });
+        },
+        auth: {
+            strategy: 'bearer'
         }
     },
     addUserDrug: {
@@ -90,6 +99,9 @@ module.exports = {
                 fdaId: Joi.string().guid(),
                 userComments: Joi.string()
             })
+        },
+        auth: {
+            strategy: 'bearer'
         }
     },
     updateUserDrug: {
@@ -111,6 +123,9 @@ module.exports = {
             payload: Joi.object().keys({
                 userComments: Joi.string()
             })
+        },
+        auth: {
+            strategy: 'bearer'
         }
     },
     deleteUserDrug: {
@@ -129,6 +144,9 @@ module.exports = {
                 token: Joi.string(),
                 fdaId: Joi.string().guid()
             }
+        },
+        auth: {
+            strategy: 'bearer'
         }
     }
 };
