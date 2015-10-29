@@ -8,7 +8,7 @@ module.exports = [
     {
         method: 'GET',
         path: '/api/hello',
-        handler: Hello
+        config: Hello
     },
     {
         method: 'GET',

@@ -35,4 +35,4 @@ function User() {
     return userModel;
 }
 
-module.exports = User;
+module.exports = User();

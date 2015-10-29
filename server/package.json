@@ -18,7 +18,8 @@
   "homepage": "https://github.com/AppliedIS/AgileBPA",
   "dependencies": {
     "bcryptjs": "^2.1.0",
-    "hapi": "^8.6.1",
+    "hapi": "^11.0.2",
+    "hapi-auth-bearer-simple": "^2.0.0",
     "hapi-require-https": "^2.0.0",
     "joi": "^6.4.3",
     "lodash": "^3.9.3",
@@ -32,7 +33,7 @@
     "gulp-mocha": "^2.1.2",
     "gulp-nodemon": "^2.0.3",
     "mocha": "^2.2.5",
-    "mockgoose": "^2.0.3",
+    "mockgoose": "^5.0.0-rc.4",
     "should": "^7.0.1"
   }
 }

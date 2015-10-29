@@ -1,6 +1,6 @@
 'use strict';
 
-var userModel = require('../models/user')();
+var userModel = require('../models/user');
 var service = require('../services/userService')(userModel);
 var Joi = require('joi');
 
